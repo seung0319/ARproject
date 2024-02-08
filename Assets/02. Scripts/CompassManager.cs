@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class CompassManager : MonoBehaviour
 {
-    public TextMeshProUGUI compassText; // TextMeshPro ÄÄÆ÷³ÍÆ®¸¦ ÂüÁ¶ÇÏ´Â º¯¼ö
+    public TextMeshProUGUI compassText; // TextMeshPro ì»´í¬ë„ŒíŠ¸ë¥¼ ì°¸ì¡°í•˜ëŠ” ë³€ìˆ˜
     public Image compassImage;
 
     void Start()
     {
-        Input.compass.enabled = true; // ³ªÄ§¹İ È°¼ºÈ­
+        Input.compass.enabled = true; // ë‚˜ì¹¨ë°˜ í™œì„±í™”
     }
 
     int roundedHeading;
@@ -19,10 +19,10 @@ public class CompassManager : MonoBehaviour
     void Update()
     {
         roundedHeading = Mathf.RoundToInt(Input.compass.trueHeading);
-        compassText.text = "Compass: " + roundedHeading.ToString(); // ³ªÄ§¹İ °ª Ãâ·Â
+        compassText.text = "Compass: " + roundedHeading.ToString(); // ë‚˜ì¹¨ë°˜ ê°’ ì¶œë ¥
         //compassImage.transform.rotation = Quaternion.Euler(0, 0, -roundedHeading);
         
-        // ³Ê¹« Èçµé¸®±â¶§¹®¿¡ º¸°£À¸·Î ºÎµå·´°Ô ¸¸µé¾îÁÜ
+        // ë„ˆë¬´ í”ë“¤ë¦¬ê¸°ë•Œë¬¸ì— ë³´ê°„ìœ¼ë¡œ ë¶€ë“œëŸ½ê²Œ ë§Œë“¤ì–´ì¤Œ
         float angle = Mathf.LerpAngle(compassImage.transform.eulerAngles.z, -roundedHeading, smoothness);
         compassImage.transform.rotation = Quaternion.Euler(0, 0, angle);
     }

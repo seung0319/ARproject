@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Android;
 
-// Summaray : À¯Àú GPS ±â´É »ç¿ëÇÏ±â À§ÇÑ ½ºÅ©¸³Æ®
+// Summaray : ìœ ì € GPS ê¸°ëŠ¥ ì‚¬ìš©í•˜ê¸° ìœ„í•œ ìŠ¤í¬ë¦½íŠ¸
 
 public class GPSManager : MonoBehaviour
 {
@@ -13,16 +13,26 @@ public class GPSManager : MonoBehaviour
     public float latitude;
     public float longitude;
 
-    public TextMeshProUGUI LatitudeText; // TextMeshProUGUI¸¦ ÂüÁ¶ÇÏ±â À§ÇÑ º¯¼ö
-    public TextMeshProUGUI LongitudeText; // TextMeshProUGUI¸¦ ÂüÁ¶ÇÏ±â À§ÇÑ º¯¼ö
-    public TextMeshProUGUI StatusText; // TextMeshProUGUI¸¦ ÂüÁ¶ÇÏ±â À§ÇÑ º¯¼ö
+    public TextMeshProUGUI LatitudeText; // TextMeshProUGUIë¥¼ ì°¸ì¡°í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
+    public TextMeshProUGUI LongitudeText; // TextMeshProUGUIë¥¼ ì°¸ì¡°í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
+    public TextMeshProUGUI StatusText; // TextMeshProUGUIë¥¼ ì°¸ì¡°í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
+    public TextMeshProUGUI DistanceText; // TextMeshProUGUIë¥¼ ì°¸ì¡°í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
 
-    POIdata data = new POIdata("Àç¹°Æ÷½ÃÀå", "ÁÁ¾Æ¿ä.", 0,0,0,0);
-    List<POIdata> POIlist = new List<POIdata>();
+    public List<POIdata> POIlist = new List<POIdata>();
+    
+    POIdata restaurantData = new POIdata("ì‹ë‹¹", "ì¢‹ì•„ìš”.", 37.714231f, 126.743506f, 0);
+    POIdata dormitoryData = new POIdata("ê¸°ìˆ™ì‚¬", "ì¢‹ì•„ìš”.", 37.714431f, 126.744381f,0);
+    POIdata frontdoorData = new POIdata("ì •ë¬¸", "ì¢‹ì•„ìš”.", 37.714263f, 126.742161f,0);
+    
     private void Start()
     {
         Instance = this;
         StartCoroutine(StartLocationService());
+    }
+
+    public void addData(string name, string description, float latitude, float longitude, float altitude)
+    {
+        POIlist.Add(new POIdata(name, description, latitude, longitude, altitude));
     }
 
     private IEnumerator StartLocationService()
@@ -36,7 +46,7 @@ public class GPSManager : MonoBehaviour
             }
         }
 
-        Input.location.Start(1, 1); // ¾÷µ¥ÀÌÆ® ÁÖ±â¸¦ 1ÃÊ·Î, ÃÖ¼Ò °Å¸®¸¦ 1·Î ÁöÁ¤
+        Input.location.Start(1, 1); // ì—…ë°ì´íŠ¸ ì£¼ê¸°ë¥¼ 1ì´ˆë¡œ, ìµœì†Œ ê±°ë¦¬ë¥¼ 1ë¡œ ì§€ì •
         int maxWait = 20;
 
         while (Input.location.status == LocationServiceStatus.Initializing && maxWait > 0)
@@ -71,8 +81,29 @@ public class GPSManager : MonoBehaviour
         {
             latitude = Input.location.lastData.latitude;
             longitude = Input.location.lastData.longitude;
-            LatitudeText.text = "Latitude: " + latitude;
-            LongitudeText.text = "Longitude: " + longitude;
+            LatitudeText.text = "Latitude: " + latitude.ToString("0.000000");
+            LongitudeText.text = "Longitude: " + longitude.ToString("0.000000");
+
+            float radius = 6371f; // ì§€êµ¬ì˜ ë°˜ì§€ë¦„ (ë‹¨ìœ„: km)
+
+            float lat1Rad = Mathf.Deg2Rad * latitude;
+            float lon1Rad = Mathf.Deg2Rad * longitude;
+            float lat2Rad = Mathf.Deg2Rad * restaurantData.Latitude;
+            float lon2Rad = Mathf.Deg2Rad * restaurantData.Longitude;
+
+            float deltaLat = lat2Rad - lat1Rad;
+            float deltaLon = lon2Rad - lon1Rad;
+
+            float a = Mathf.Sin(deltaLat / 2f) * Mathf.Sin(deltaLat / 2f) +
+                Mathf.Cos(lat1Rad) * Mathf.Cos(lat2Rad) *
+                Mathf.Sin(deltaLon / 2f) * Mathf.Sin(deltaLon / 2f);
+
+            float c = 2f * Mathf.Atan2(Mathf.Sqrt(a), Mathf.Sqrt(1f - a));
+
+            float distance = radius * c;
+
+            DistanceText.text = "Distance to Restaurant: " + distance.ToString("0.000000");
         }
+
     }
 }
