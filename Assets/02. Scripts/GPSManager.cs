@@ -17,6 +17,8 @@ public class GPSManager : MonoBehaviour
     public TextMeshProUGUI LongitudeText; // TextMeshProUGUI를 참조하기 위한 변수
     public TextMeshProUGUI StatusText; // TextMeshProUGUI를 참조하기 위한 변수
 
+    POIdata data = new POIdata("재물포시장", "좋아요.", 0,0,0,0);
+    List<POIdata> POIlist = new List<POIdata>();
     private void Start()
     {
         Instance = this;
@@ -67,7 +69,6 @@ public class GPSManager : MonoBehaviour
 
         if (Input.location.status == LocationServiceStatus.Running)
         {
-
             latitude = Input.location.lastData.latitude;
             longitude = Input.location.lastData.longitude;
             LatitudeText.text = "Latitude: " + latitude;
