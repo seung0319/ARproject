@@ -5,11 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public struct POIdata
 {
-    private string name;
-    private string description;
-    private float latitude;
-    private float longitude;
-    private float altitude;
+    public string name;
+    public string description;
+    public float latitude;
+    public float longitude;
+    public float altitude;
 
     public string Name { get { return name; } }
     public string Description { get { return description; } }

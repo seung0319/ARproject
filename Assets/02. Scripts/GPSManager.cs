@@ -30,11 +30,6 @@ public class GPSManager : MonoBehaviour
         StartCoroutine(StartLocationService());
     }
 
-    public void addData(string name, string description, float latitude, float longitude, float altitude)
-    {
-        POIlist.Add(new POIdata(name, description, latitude, longitude, altitude));
-    }
-
     private IEnumerator StartLocationService()
     {
         if (!Permission.HasUserAuthorizedPermission(Permission.FineLocation))
@@ -105,5 +100,10 @@ public class GPSManager : MonoBehaviour
             DistanceText.text = "Distance to Restaurant: " + distance.ToString("0.000000");
         }
 
+    }
+
+    public void addData(string name, string description, float latitude, float longitude, float altitude)
+    {
+        POIlist.Add(new POIdata(name, description, latitude, longitude, altitude));
     }
 }
