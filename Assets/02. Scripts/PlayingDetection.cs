@@ -24,8 +24,9 @@ public class PlayingDetection : MonoBehaviour
     {
         
     }
-    private void CastRayByScreenTouch()
+    private void CastRayByScreenTouch() //이동
     {
+
         if (Input.touchCount >0)
         {
             Touch touch = Input.GetTouch(0);
@@ -38,8 +39,10 @@ public class PlayingDetection : MonoBehaviour
                     Pose hitPos = hitInfo[0].pose;
                     if (spawnObj != null)
                     {
-                        spawnObj.transform.position= hitPos.position;
-                        spawnObj.transform.rotation= hitPos.rotation;
+                        /*spawnObj.transform.position= hitPos.position;
+                        spawnObj.transform.rotation= hitPos.rotation;*/
+                        Vector3 touchDeltaPosition = touch.deltaPosition;
+                        spawnObj.Translate(new Vector3(touchDeltaPosition.x, 0, touchDeltaPosition.y));
                     }
                 }
             }
@@ -81,7 +84,7 @@ public class PlayingDetection : MonoBehaviour
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
 
-            //두 터치 간의 현재위치와 이전 위치르 기반으로 거리를 계산
+            //두 터치 간의 현재위치와 이전 위치를 기반으로 거리를 계산
             Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
             Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
 
