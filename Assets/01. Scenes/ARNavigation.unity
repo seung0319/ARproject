@@ -1796,7 +1796,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indicator: {fileID: 178568163}
-  placePrefab: {fileID: 1793499937985081026, guid: 149b70b364be9b64d9e331169f8b5c28, type: 3}
+  placePrefab: {fileID: 3862829661469340043, guid: 013fa0d55df1c3841b8c569db9dd1ba6, type: 3}
+  zoomSpeed: 0.5
+  zoomLerpSpeed: 10
+  minFOV: 30
+  maxFOV: 90
+  arCamera: {fileID: 1443854075}
 --- !u!114 &1812519680
 MonoBehaviour:
   m_ObjectHideFlags: 0

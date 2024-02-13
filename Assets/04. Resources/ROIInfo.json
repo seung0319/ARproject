@@ -1,0 +1,18 @@
+{
+	"GPSInfo": [
+		{
+			"name": "경기인력개발원".
+			"description": "추워요".
+			"latitude": 37.555555,
+			"longitude": 127.555555,
+			"altitude": 53.555555,
+		},
+		{
+			"name": "식당".
+			"description": "맛없어요".
+			"latitude": 36.555555,
+			"longitude": 126.555555,
+			"altitude": 53.555555,
+		},
+	]
+}
