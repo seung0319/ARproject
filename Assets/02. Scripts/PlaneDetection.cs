@@ -9,20 +9,15 @@ using UnityEngine.XR.ARSubsystems;
 //ARRay를 발사해 palane에 닿으면 Indicator 띄워줌
 
 [RequireComponent(typeof(ARRaycastManager))]
-public class PlayingDetection : MonoBehaviour
+public class PlaneDetection : MonoBehaviour
 {
     [SerializeField] Transform indicator;
     ARRaycastManager raycastManager;
-    Transform spawnObj;
+    public GameObject spawnObj;
     float zoomSpeed = 0.1f;
     private void Awake()
     {
         raycastManager = GetComponent<ARRaycastManager>(); //없으면 null뜸
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
     private void CastRayByScreenTouch() //이동
     {
@@ -42,7 +37,7 @@ public class PlayingDetection : MonoBehaviour
                         /*spawnObj.transform.position= hitPos.position;
                         spawnObj.transform.rotation= hitPos.rotation;*/
                         Vector3 touchDeltaPosition = touch.deltaPosition;
-                        spawnObj.Translate(new Vector3(touchDeltaPosition.x, 0, touchDeltaPosition.y));
+                        spawnObj.transform.Translate(new Vector3(touchDeltaPosition.x, 0, touchDeltaPosition.y));
                     }
                 }
             }
@@ -96,13 +91,13 @@ public class PlayingDetection : MonoBehaviour
 
             //오브젝트의 스케일 조절
             //핀치해 화면을 벌리 때 오브젝트를 확대하고 핀치를 모을 때 오브젝트 축소
-            spawnObj.localScale -= Vector3.one * deltaMagnitudeDiff * zoomSpeed;
+            spawnObj.transform.localScale -= Vector3.one * deltaMagnitudeDiff * zoomSpeed;
 
             //스케일의 최소값과 최대값 제한(옵션)
-            spawnObj.localScale = new Vector3
-                (Mathf.Clamp(spawnObj.localScale.x, 0.1f, 5f),
-                Mathf.Clamp(spawnObj.localScale.y, 0.1f, 5f),
-                Mathf.Clamp(spawnObj.localScale.z, 0.1f, 5f)
+            spawnObj.transform.localScale = new Vector3
+                (Mathf.Clamp(spawnObj.transform.localScale.x, 0.1f, 5f),
+                Mathf.Clamp(spawnObj.transform.localScale.y, 0.1f, 5f),
+                Mathf.Clamp(spawnObj.transform.localScale.z, 0.1f, 5f)
                 );
         }
     }

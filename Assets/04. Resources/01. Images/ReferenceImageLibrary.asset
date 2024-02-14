@@ -28,7 +28,7 @@ MonoBehaviour:
     m_Size: {x: 225, y: 225}
     m_SpecifySize: 0
     m_Name: "\uAC15\uC758\uC2E4"
-    m_Texture: {fileID: 0}
+    m_Texture: {fileID: 2800000, guid: b885fc3b1817c8a458f8e8d58bc5a4e3, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 4709803056001668514
       m_GuidHigh: 15449660350328840615
@@ -38,7 +38,7 @@ MonoBehaviour:
     m_Size: {x: 225, y: 183.43373}
     m_SpecifySize: 0
     m_Name: "\uC2DD\uB2F9"
-    m_Texture: {fileID: 0}
+    m_Texture: {fileID: 2800000, guid: 0358510c7fc392f458ccf0871b99bfcc, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 5191497462540208101
       m_GuidHigh: 13816935575621653653
@@ -48,7 +48,7 @@ MonoBehaviour:
     m_Size: {x: 225, y: 225}
     m_SpecifySize: 0
     m_Name: "\uC815\uBB38"
-    m_Texture: {fileID: 0}
+    m_Texture: {fileID: 2800000, guid: 8ac57f04053987545b9cad042af522f5, type: 3}
   - m_SerializedGuid:
       m_GuidLow: 4773120244218095392
       m_GuidHigh: 5830958106351243164
@@ -58,4 +58,4 @@ MonoBehaviour:
     m_Size: {x: 225, y: 225}
     m_SpecifySize: 0
     m_Name: "\uAE30\uC219\uC0AC"
-    m_Texture: {fileID: 0}
+    m_Texture: {fileID: 2800000, guid: 7a4e0721c82c7b74581ee64d3d765da3, type: 3}
