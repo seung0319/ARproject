@@ -1,18 +1,29 @@
 {
 	"pois": [
 		{
-			"name": "경기인력개발원",
-			"description": "추워요",
-			"latitude": 37.555555,
-			"longitude": 127.555555,
-			"altitude": 53.555555
+			"name": "cafe 07 am",
+			"description": "커피숍이애오",
+			"latitude": 37.7146690,
+			"longitude": 126.7416670
 		},
 		{
-			"name": "식당",
-			"description": "맛없어요",
-			"latitude": 36.555555,
-			"longitude": 126.555555,
-			"altitude": 53.555555
+			"name": "더브래드36.5도",
+			"description": "빵집이애오",
+			"latitude": 37.7147970,
+			"longitude": 126.7418100
+		},
+		{
+			"name": "홍익돈까스",
+			"description": "돈까스이애오",
+			"latitude": 37.7141960,
+			"longitude": 126.7411320
+		},
+		{
+			"name": "경기인력개발원",
+			"description": "추워요",
+			"latitude": 37.7137920,
+			"longitude": 126.7442360
 		}
+
 	]
 }

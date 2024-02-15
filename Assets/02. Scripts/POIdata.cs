@@ -9,21 +9,21 @@ public struct POIdata
     public string description;
     public float latitude;
     public float longitude;
-    public float altitude;
+    //public float altitude;
 
     public string Name { get { return name; } }
     public string Description { get { return description; } }
     public float Latitude { get { return latitude; } }
     public float Longitude { get { return longitude; } }
-    public float Altitude { get { return altitude; } }
+    //public float Altitude { get { return altitude; } }
 
 
-    public POIdata(string name, string description, float latitude, float longitude, float altitude)
+    public POIdata(string name, string description, float latitude, float longitude)
     {
         this.name = name;
         this.description = description;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.altitude = altitude;
+        //this.altitude = altitude;
     }
 }

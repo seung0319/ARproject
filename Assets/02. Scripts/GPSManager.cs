@@ -20,9 +20,9 @@ public class GPSManager : MonoBehaviour
 
     public List<POIdata> POIlist = new List<POIdata>();
     
-    POIdata restaurantData = new POIdata("식당", "좋아요.", 37.714231f, 126.743506f, 0);
-    POIdata dormitoryData = new POIdata("기숙사", "좋아요.", 37.714431f, 126.744381f,0);
-    POIdata frontdoorData = new POIdata("정문", "좋아요.", 37.714263f, 126.742161f,0);
+    POIdata restaurantData = new POIdata("식당", "좋아요.", 37.714231f, 126.743506f);
+    POIdata dormitoryData = new POIdata("기숙사", "좋아요.", 37.714431f, 126.744381f);
+    POIdata frontdoorData = new POIdata("정문", "좋아요.", 37.714263f, 126.742161f);
     
     private void Start()
     {
@@ -102,8 +102,8 @@ public class GPSManager : MonoBehaviour
 
     }
 
-    public void addData(string name, string description, float latitude, float longitude, float altitude)
+    public void addData(string name, string description, float latitude, float longitude)
     {
-        POIlist.Add(new POIdata(name, description, latitude, longitude, altitude));
+        POIlist.Add(new POIdata(name, description, latitude, longitude));
     }
 }
