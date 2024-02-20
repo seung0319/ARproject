@@ -2,28 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public struct POIdata
+public class POIData : MonoBehaviour
 {
-    public string name;
-    public string description;
-    public float latitude;
-    public float longitude;
-    //public float altitude;
+    public POI poi;
 
-    public string Name { get { return name; } }
-    public string Description { get { return description; } }
-    public float Latitude { get { return latitude; } }
-    public float Longitude { get { return longitude; } }
-    //public float Altitude { get { return altitude; } }
-
-
-    public POIdata(string name, string description, float latitude, float longitude)
+    public void SetData(POI newPOI)
     {
-        this.name = name;
-        this.description = description;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        //this.altitude = altitude;
+        poi = newPOI;
+    }
+
+    public POI GetData()
+    {
+        return poi;
     }
 }

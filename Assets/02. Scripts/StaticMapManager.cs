@@ -13,13 +13,13 @@ public class StaticMapManager : MonoBehaviour
     [SerializeField] string clientSecret = "WespgDc0DDelU0pN69HzZgyj5ByEBwhDGU0gxxTB";
     public RawImage mapRawImage;
     
-    public string latitude = "37.467012";
-    public string longitude = "126.657155";
-    public int level = 15;
-    public int mapWidth;
-    public int mapHeight;
+    public string latitude = "37.466480";
+    public string longitude = "126.657566";
+    public int level = 17;
+    public int mapWidth = 360;
+    public int mapHeight  = 800;
 
-    StringBuilder markersParam;
+    //StringBuilder markersParam;
 
     public Text debug;
 
@@ -86,7 +86,6 @@ public class StaticMapManager : MonoBehaviour
             //print(json);
             debug.text = "YA";
             Debug.Log("Ya");
-
 
             mapRawImage.texture = DownloadHandlerTexture.GetContent(request);
         }

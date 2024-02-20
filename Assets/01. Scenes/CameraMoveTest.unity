@@ -161,7 +161,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 4320, y: 9600}
+  m_SizeDelta: {x: 1620, y: 3600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &496413357
 MonoBehaviour:
@@ -713,11 +713,11 @@ MonoBehaviour:
   clientID: w9g29xtrwz
   clientSecret: WespgDc0DDelU0pN69HzZgyj5ByEBwhDGU0gxxTB
   mapRawImage: {fileID: 496413357}
-  latitude: 37.7126350
-  longitude: 126.7451190
-  level: 15
-  mapWidth: 864
-  mapHeight: 1920
+  latitude: 37.466480
+  longitude: 126.657566
+  level: 17
+  mapWidth: 360
+  mapHeight: 800
   debug: {fileID: 1869091825}
 --- !u!4 &2018959994
 Transform:
